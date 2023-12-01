@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { ModalController } from '@ionic/angular';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-mahasiswa',
   templateUrl: './mahasiswa.page.html',
@@ -8,7 +10,7 @@ import { ModalController } from '@ionic/angular';
 })
 export class MahasiswaPage implements OnInit {
 
-  constructor(public _apiService: ApiService, private modal:ModalController) { }
+  constructor(public _apiService: ApiService, private modal:ModalController, private router: Router) { }
   dataMahasiswa: any = [];
   modal_tambah = false;
   id: any;
@@ -124,5 +126,8 @@ export class MahasiswaPage implements OnInit {
                 console.log('gagal edit Mahasiswa');
                 }
                 })
+                }
+                goToLoginPage() {
+                  this.router.navigate(['/login']);
                 }
 }
