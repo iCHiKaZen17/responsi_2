@@ -4,10 +4,16 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>Data Kehadiran Kuliah Umum</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToLoginPage()">
+        <ion-icon name="log-out"></ion-icon>
+        Logout
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
   <ion-card *ngFor="let item of dataMahasiswa">
     <ion-item>
       <ion-label>
@@ -15,14 +21,23 @@
         <p>{{ item.jurusan }}</p>
       </ion-label>
       <ion-buttons slot="end">
-        <ion-button color="danger" (click)="hapusMahasiswa(item.id)">Hapus</ion-button>
-        <ion-button (click)="open_modal_edit(true, item.id)">Edit</ion-button>
+        <ion-button color="danger" (click)="hapusMahasiswa(item.id)">
+          <ion-icon name="trash"></ion-icon>
+          Hapus
+        </ion-button>
+        <ion-button (click)="open_modal_edit(true, item.id)">
+          <ion-icon name="create"></ion-icon>
+          Edit
+        </ion-button>
       </ion-buttons>
     </ion-item>
   </ion-card>
 
   <ion-card>
-    <ion-button (click)="open_modal_tambah(true)" expand="full" fill="solid">Tambah Data Mahasiswa</ion-button>
+    <ion-button (click)="open_modal_tambah(true)" expand="full" fill="solid">
+      <ion-icon name="add-circle"></ion-icon>
+      Tambah Data Mahasiswa
+    </ion-button>
   </ion-card>
 
   <!-- Modal Tambah Mahasiswa -->
@@ -31,7 +46,10 @@
       <ion-header>
         <ion-toolbar>
           <ion-buttons slot="start">
-            <ion-button (click)="cancel()">Batal</ion-button>
+            <ion-button (click)="cancel()">
+              <ion-icon name="arrow-back"></ion-icon>
+              Batal
+            </ion-button>
           </ion-buttons>
           <ion-title>Tambah Data Mahasiswa</ion-title>
         </ion-toolbar>
@@ -45,15 +63,16 @@
           <ion-label position="floating">Jurusan Mahasiswa</ion-label>
           <ion-input [(ngModel)]="jurusan" type="text"></ion-input>
         </ion-item>
-        <ion-row>
+        <ion-row class="ion-margin-top">
           <ion-col>
-            <ion-button (click)="tambahMahasiswa()" color="primary" expand="full">Tambah Data Mahasiswa</ion-button>
+            <ion-button (click)="tambahMahasiswa()" color="primary" expand="full">
+              Tambah Data Mahasiswa
+            </ion-button>
           </ion-col>
         </ion-row>
       </ion-content>
     </ng-template>
   </ion-modal>
-  
 
   <!-- Modal Edit Mahasiswa -->
   <ion-modal [isOpen]="modal_edit">
@@ -61,7 +80,10 @@
       <ion-header>
         <ion-toolbar>
           <ion-buttons slot="start">
-            <ion-button (click)="cancel()">Batal</ion-button>
+            <ion-button (click)="cancel()">
+              <ion-icon name="arrow-back"></ion-icon>
+              Batal
+            </ion-button>
           </ion-buttons>
           <ion-title>Edit Mahasiswa</ion-title>
         </ion-toolbar>
@@ -76,18 +98,15 @@
           <ion-input [(ngModel)]="jurusan" type="text"></ion-input>
         </ion-item>
         <ion-input [(ngModel)]="id" type="hidden"></ion-input>
-        <ion-row>
+        <ion-row class="ion-margin-top">
           <ion-col>
-            <ion-button (click)="editMahasiswa()" color="primary" expand="full">Edit Mahasiswa</ion-button>
+            <ion-button (click)="editMahasiswa()" color="primary" expand="full">
+              Edit Mahasiswa
+            </ion-button>
           </ion-col>
         </ion-row>
       </ion-content>
     </ng-template>
   </ion-modal>
-</ion-content>
 
-<ion-buttons slot="start">
-  <ion-button (click)="goToLoginPage()">
-    <ion-icon name="arrow-back"></ion-icon>
-    logout
-  </ion-button>
+
